@@ -15,8 +15,9 @@ char * alloc_disk_memory(u64 size)
 
    // El vostre codi va aqui
 
-
-
+   p = vmalloc(PAGE_ALIGN(size));
+   for (i = 0; i < size; ++i)
+      p[i] = 'A';
 
    // fi de la vostra implementacio 
 
@@ -31,8 +32,7 @@ void   free_disk_memory(char * disk_mem)
 {
    // la vostra implementacio va aqui
 
-
-
+   vfree(disk_mem);
 
    // fi de la vostra implementacio
    printk(KERN_DEBUG "free_disk_memory %p\n", disk_mem);
