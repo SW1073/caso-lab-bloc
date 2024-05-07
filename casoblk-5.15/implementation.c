@@ -74,13 +74,18 @@ int copy_from_xrd(void *dst, struct xrd_device *xrd,
 #ifdef DEBUG
     printk(KERN_DEBUG "copy_from_xrd sec %llu, sz %ld copy %ld (%d %d)\n",
            sector, n, copy, PAGE_SECTORS, SECTOR_SHIFT);
+
+    printk(KERN_DEBUG"Offset value: %u", offset);
 #endif
 
     // la vostra implementacio va aqui
 
+    if (sector >= 128) return res; 
+
     src = xrd->disk_memory + offset;
-    memcpy(dst,src,n); 
+    memcpy(dst,src,copy); 
     res = 0;
+
 
     // fi de la vostra implementacio
     //
@@ -106,8 +111,10 @@ int copy_to_xrd(struct xrd_device *xrd, const void *src,
 #endif
     // la vostra implementacio va aqui
 
+    if (sector >= 128) return res; 
+
     dst = xrd->disk_memory + offset;
-    memcpy(dst,src,n);
+    memcpy(dst,src,copy); 
     res = 0;
  
     // fi de la vostra implementacio
