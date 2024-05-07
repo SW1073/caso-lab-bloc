@@ -75,7 +75,8 @@ int copy_from_xrd(void *dst, struct xrd_device *xrd,
     // la vostra implementacio va aqui
 
     src = xrd->disk_mem + (sector << SECTOR_SIZE);
-    res = memcpy(dst,src,n); 
+    memcpy(dst,src,n); 
+    res = 0;
 
     // fi de la vostra implementacio
     //
@@ -102,10 +103,10 @@ int copy_to_xrd(struct xrd_device *xrd, const void *src,
     // la vostra implementacio va aqui
 
     dst = xrd->disk_memory + (sector << SECTOR_SIZE);
-    res = memcpy(dst,src,n);
+    memcpy(dst,src,n);
+    res = 0;
  
     // fi de la vostra implementacio
-    //
     return res;
 }
 
