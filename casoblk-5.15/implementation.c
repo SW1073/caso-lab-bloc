@@ -12,12 +12,13 @@ char * alloc_disk_memory(u64 size)
 {
     u64 i;
     char * p = NULL;
+    char c = (char)0;
 
     // El vostre codi va aqui
 
     p = vmalloc(PAGE_ALIGN(size));
-    for (i = 0; i < size; ++i)
-        p[i] = 'A';
+    for (i = 0; i < 255; ++i)
+        p[i] = c++;
 
     // fi de la vostra implementacio 
 
@@ -44,8 +45,11 @@ int xrd_getgeo(struct block_device * bdev, struct hd_geometry * g)
     struct xrd_device *xrd = bdev->bd_disk->private_data;
     // la vostra implementacio va aqui... pot ser que aquesta funció no es cridi
 
-
-
+    g->heads = 32;
+    g->sectors = 128;
+    g->cylinders = xrd->size/g->heads/g->sectors/SECTOR_SIZE;
+    g->start = 0;
+    err = 0;
 
     // fi de la vostra implementacio
 
@@ -74,7 +78,7 @@ int copy_from_xrd(void *dst, struct xrd_device *xrd,
 
     // la vostra implementacio va aqui
 
-    src = xrd->disk_mem + (sector << SECTOR_SIZE);
+    src = xrd->disk_memory + offset;
     memcpy(dst,src,n); 
     res = 0;
 
@@ -102,7 +106,7 @@ int copy_to_xrd(struct xrd_device *xrd, const void *src,
 #endif
     // la vostra implementacio va aqui
 
-    dst = xrd->disk_memory + (sector << SECTOR_SIZE);
+    dst = xrd->disk_memory + offset;
     memcpy(dst,src,n);
     res = 0;
  
