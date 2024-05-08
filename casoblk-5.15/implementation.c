@@ -80,15 +80,11 @@ int copy_from_xrd(void *dst, struct xrd_device *xrd,
 
     // la vostra implementacio va aqui
 
-    if (sector >= 128) return res; 
-
-    src = xrd->disk_memory + offset;
+    src = xrd->disk_memory + sector * SECTOR_SIZE;
     memcpy(dst,src,copy); 
     res = 0;
 
-
     // fi de la vostra implementacio
-    //
     return res;
 }
 
@@ -111,9 +107,7 @@ int copy_to_xrd(struct xrd_device *xrd, const void *src,
 #endif
     // la vostra implementacio va aqui
 
-    if (sector >= 128) return res; 
-
-    dst = xrd->disk_memory + offset;
+    dst = xrd->disk_memory + sector * SECTOR_SIZE;
     memcpy(dst,src,copy); 
     res = 0;
  
