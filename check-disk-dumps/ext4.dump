@@ -1,0 +1,35 @@
+** using ext4 filesystem *******
+** Module myblkdrv is correctly loaded *******
+** creating ext4 filesystem *******
+mke2fs 1.45.5 (07-Jan-2020)
+Creating filesystem with 4096 4k blocks and 4096 inodes
+
+Allocating group tables: done                            
+Writing inode tables: done                            
+Creating journal (1024 blocks): done
+Writing superblocks and filesystem accounting information: done
+
+** checking ext4 filesystem *******
+fsck from util-linux 2.34
+e2fsck 1.45.5 (07-Jan-2020)
+/dev/xrd1: clean, 11/4096 files, 1163/4096 blocks
+** mounting device *******
+** copying files *******
+** verifying files *******
+  ** comparing check-disk.sh *******
+  ** comparing check-partition.sh *******
+  ** comparing implementation.c *******
+  ** comparing implementation.o *******
+  ** comparing interface.c *******
+  ** comparing interface.h *******
+  ** comparing interface.o *******
+  ** comparing Makefile *******
+  ** comparing modules.order *******
+  ** comparing Module.symvers *******
+  ** comparing myblkdrv.ko *******
+  ** comparing myblkdrv.mod *******
+  ** comparing myblkdrv.mod.c *******
+  ** comparing myblkdrv.mod.o *******
+  ** comparing myblkdrv.o *******
+** unmounting device *******
+Test   SUCCESSFUL!!

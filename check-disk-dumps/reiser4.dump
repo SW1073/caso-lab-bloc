@@ -1,0 +1,69 @@
+** using reiser4 filesystem *******
+** Module myblkdrv is correctly loaded *******
+** creating reiser4 filesystem *******
+mkfs.reiser4 1.2.1
+Format release: 4.0.2
+Copyright (C) 2001-2005 by Hans Reiser, licensing governed by reiser4progs/COPYING. 
+
+Block size 4096 will be used.                                                                         
+Linux 5.15.0-105-generic is detected.                                                                 
+Uuid 3f34cf42-8c43-4d81-87ec-4891a41a957e will be used.                                               
+Reiser4 is going to be created on /dev/xrd1.                                                          
+(Yes/No): Yes
+Creating reiser4 on /dev/xrd1 ... done                                                                
+** checking reiser4 filesystem *******
+fsck from util-linux 2.34
+*******************************************************************
+This is an EXPERIMENTAL version of fsck.reiser4. Read README first.
+*******************************************************************
+
+Fscking the /dev/xrd1 block device.                                                                   
+Will check the consistency of the Reiser4 SuperBlock.                                                 
+Will check the consistency of the Reiser4 FileSystem.                                                 
+Continue?                                                                                             
+(Yes/No): Yes
+***** fsck.reiser4 started at Wed May  8 17:53:33 2024
+Reiser4 fs was detected on /dev/xrd1.                                                                 
+Master super block (16): 
+magic:		ReIsEr4 
+blksize:	4096 
+format:		0x0 (format40) 
+uuid:		3f34cf42-8c43-4d81-87ec-4891a41a957e 
+label:		<none> 
+ 
+Format super block (17): 
+plugin:		format40 
+description:	Disk-format plugin. 
+version:	2 
+magic:		ReIsEr40FoRmAt 
+mkfs id:	0x466de6ef 
+flushes:	0 
+blocks:		512 
+free blocks:	487 
+root block:	23 
+tail policy:	0x2 (smart) 
+next oid:	0x10001 
+file count:	2 
+tree height:	2 
+key policy:	LARGE 
+ 
+ 
+CHECKING THE STORAGE TREE                                                                             
+        Read nodes 2                                                                                  
+	Nodes left in the tree 2 
+		Leaves of them 1, Twigs of them 1 
+	Time interval: Wed May  8 17:53:33 2024 - Wed May  8 17:53:33 2024 
+CHECKING EXTENT REGIONS.                                                                              
+        Read twigs 1                                                                                  
+	Time interval: Wed May  8 17:53:33 2024 - Wed May  8 17:53:33 2024 
+CHECKING THE SEMANTIC TREE                                                                            
+        Found 2 objects (some could be encountered more then once).                                   
+	Time interval: Wed May  8 17:53:33 2024 - Wed May  8 17:53:33 2024 
+***** fsck.reiser4 finished at Wed May  8 17:53:33 2024
+Closing fs...done
+
+FS is consistent.
+
+** mounting device *******
+mount: /mnt/point: unknown filesystem type 'reiser4'.
+Test UNSUCCESSFUL!!!!!

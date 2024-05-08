@@ -1,0 +1,28 @@
+** using vfat filesystem *******
+** Module myblkdrv is correctly loaded *******
+** creating vfat filesystem *******
+mkfs.fat 4.1 (2017-01-24)
+** checking vfat filesystem *******
+fsck from util-linux 2.34
+fsck.fat 4.1 (2017-01-24)
+/dev/xrd1: 0 files, 0/8167 clusters
+** mounting device *******
+** copying files *******
+** verifying files *******
+  ** comparing check-disk.sh *******
+  ** comparing check-partition.sh *******
+  ** comparing implementation.c *******
+  ** comparing implementation.o *******
+  ** comparing interface.c *******
+  ** comparing interface.h *******
+  ** comparing interface.o *******
+  ** comparing Makefile *******
+  ** comparing modules.order *******
+  ** comparing Module.symvers *******
+  ** comparing myblkdrv.ko *******
+  ** comparing myblkdrv.mod *******
+  ** comparing myblkdrv.mod.c *******
+  ** comparing myblkdrv.mod.o *******
+  ** comparing myblkdrv.o *******
+** unmounting device *******
+Test   SUCCESSFUL!!

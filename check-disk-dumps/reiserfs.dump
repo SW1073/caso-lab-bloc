@@ -1,0 +1,68 @@
+** using reiserfs filesystem *******
+** Module myblkdrv is correctly loaded *******
+** creating reiserfs filesystem *******
+mkfs.reiserfs 3.6.27
+
+Guessing about desired format.. Kernel 5.15.0-105-generic is running.
+Format 3.6 with non-standard journal
+Count of blocks on the device: 4096
+Number of blocks consumed by mkreiserfs formatting process: 2067
+Blocksize: 4096
+Hash function used to sort names: "r5"
+Journal Size 2048 blocks (first block 18)
+Journal Max transaction length 1023
+inode generation number: 0
+UUID: e5ab99c4-fded-4876-9951-a89d63ebf90e
+ATTENTION: YOU SHOULD REBOOT AFTER FDISK!
+	ALL DATA WILL BE LOST ON '/dev/xrd1'!
+Continue (y/n):y
+Initializing journal - 0%....20%....40%....60%....80%....100%
+Syncing..ok
+ReiserFS is successfully created on /dev/xrd1.
+** checking reiserfs filesystem *******
+fsck from util-linux 2.34
+reiserfsck 3.6.27
+
+Will read-only check consistency of the filesystem on /dev/xrd1
+Will put log info to 'stdout'
+
+Do you want to run this program?[N/Yes] (note need to type Yes if you do):Yes
+###########
+reiserfsck --check started at Wed May  8 17:52:23 2024
+###########
+Replaying journal: No transactions found
+Checking internal tree.. finished
+Comparing bitmaps..finished
+Checking Semantic tree:
+finished
+No corruptions found
+There are on the filesystem:
+	Leaves 1
+	Internal nodes 0
+	Directories 1
+	Other files 0
+	Data block pointers 0 (0 of them are zero)
+	Safe links 0
+###########
+reiserfsck finished at Wed May  8 17:52:23 2024
+###########
+** mounting device *******
+** copying files *******
+** verifying files *******
+  ** comparing check-disk.sh *******
+  ** comparing check-partition.sh *******
+  ** comparing implementation.c *******
+  ** comparing implementation.o *******
+  ** comparing interface.c *******
+  ** comparing interface.h *******
+  ** comparing interface.o *******
+  ** comparing Makefile *******
+  ** comparing modules.order *******
+  ** comparing Module.symvers *******
+  ** comparing myblkdrv.ko *******
+  ** comparing myblkdrv.mod *******
+  ** comparing myblkdrv.mod.c *******
+  ** comparing myblkdrv.mod.o *******
+  ** comparing myblkdrv.o *******
+** unmounting device *******
+Test   SUCCESSFUL!!
